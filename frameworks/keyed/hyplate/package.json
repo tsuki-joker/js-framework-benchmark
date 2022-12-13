@@ -1,0 +1,23 @@
+{
+  "main": "index.js",
+  "type": "module",
+  "js-framework-benchmark": {
+    "frameworkVersionFromPackage": "hyplate",
+    "frameworkHomeURL": "https://github.com/DarrenDanielDay/hyplate"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start:compile\" \"npm run start:serve\"",
+    "start:compile": "esbuild ./src/main.tsx --bundle --format=esm --tsconfig=./tsconfig.json --watch --outfile=dist/main.js --sourcemap",
+    "start:serve": "serve .",
+    "build-prod": "esbuild ./src/main.tsx --bundle --format=esm --tsconfig=./tsconfig.json --outfile=dist/main.js"
+  },
+  "dependencies": {
+    "hyplate": "^0.1.4"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "esbuild": "^0.16.4",
+    "serve": "^14.1.2",
+    "typescript": "^4.9.4"
+  }
+}
